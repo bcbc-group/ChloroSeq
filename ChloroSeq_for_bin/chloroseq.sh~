@@ -1,0 +1,19 @@
+#!/bin/sh
+###############################################################
+# pipeline for running fastq-mcf on multiple paired files     #
+#                                                             #
+# usage:                                                      #
+#                                                             #
+#      run_paired_fastq-mcf.sh  $basedir                      #
+#                                                             #
+###############################################################
+#input_file-directory=$1
+
+cd $1
+CPU=$2
+
+for file in `dir -d *.bam` ; do
+
+    /home/srs57/Leila4888_2017_07_01/chloroseq/chloroseq/ChloroSeq_for_bin/./chloroseq.pl -a 3 -b $file -e /home/srs57/Leila4888_2017_07_01/ref_genome/Si_plastid_exon.gff3 -i /home/srs57/Leila4888_2017_07_01/ref_genome/Si_plastid_introns.gff3 -g 135516 -n NC_022850.1 -f /home/srs57/Leila4888_2017_07_01/ref_genome/Sitalica_164_v2_mscaff14_pchloro.fa -s /home/srs57/Leila4888_2017_07_01/ref_genome/Si_plastid_introns.gff3
+
+done
